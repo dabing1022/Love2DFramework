@@ -4,10 +4,10 @@ LeafEntity = Class
   init = function(self, x, y, rot_x, rot_y, img)
     Entity.init(self)
     self.pos      = PositionComponent(x, y, rot_x, rot_y)
-    self.img      = RenderComponent(img)
+    if (img) then self.img      = RenderComponent(img)end
 
     self:addComponent(self.pos)
-    self:addComponent(self.img)   
+    if (img) then self:addComponent(self.img) end
   end
 }
 

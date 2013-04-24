@@ -12,6 +12,12 @@ Entity = Class{
 
 function Entity:addComponent(comp)
   self.components[comp.id] = comp
+  local name = string.gsub (comp.id, 'Component', '')
+  if not(self['get'..(name)]) then    
+    self['get'..name] = comp
+  else
+    assert(true, 'Method '..'get'..(comp.id)..' do not exist')
+  end
   comp:addEntity(self)
 end
 
