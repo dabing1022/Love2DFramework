@@ -6,27 +6,25 @@ require "game/collision/CircleShape"
 require "base/Entity"
 require "base/Component"
 require "base/EntityManager"
-require "base/ComponentManager"
 require "base/System"
-
-local entitiesFolder    = "game/entity/"
-local componentsFolder  = "game/components/"
-local systemsFolder     = "game/systems/"
 
 BaseGame = Class
 {
   init = function(self, name)
        
-    self:loadFiles(entitiesFolder)
-    self:loadFiles(componentsFolder)
-    self:loadFiles(systemsFolder)
+    self.entitiesFolder    = "game/entity/"
+    self.componentsFolder  = "game/components/"
+    self.systemsFolder     = "game/systems/"
     
-    self.cm = ComponentManager()
+    self.events = require 'base/libs/hump/signal'
+    
+    self:loadFiles(self.entitiesFolder)
+    self:loadFiles(self.componentsFolder)
+    self:loadFiles(self.systemsFolder)
+
     self.em = EntityManager()
   end
 }
-
-BaseGame.events = require 'base/libs/hump/signal'
 
 function BaseGame:loadFiles(dir)
   local files = love.filesystem.enumerate(dir)

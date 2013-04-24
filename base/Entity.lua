@@ -26,8 +26,12 @@ function Entity:getComponent(comp_id)
 end
 
 function Entity:removeComponent(comp)
-  if (self.components[id.comp] ~= nil) then
-    self.components[id.comp] = nil
+  if (self.components[comp.id] ~= nil) then
+    self.components[comp.id] = nil
+  end
+  local name = string.gsub (comp.id, 'Component', '')
+  if (self['get'..(name)]) then 
+    self['get'..(name)] = nil
   end
 end
 
