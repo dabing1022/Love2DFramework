@@ -34,21 +34,19 @@ function RenderSystem:drawNode(node)
          
         love.graphics.translate (pos.x, pos.y)    
         love.graphics.rotate    (pos.rot_x + pos.rot_dump, pos.rot_y)  
-        love.graphics.scale     (pos.scale_x , pos.scale_y)  
+        love.graphics.scale     (pos.scale_x , pos.scale_y)       
         
-        
-        
-          if     (entity.isManualDraw) then 
-            entity:draw()
-          elseif (anim ~= nil) then 
-            love.graphics.translate (-anim.width / 2, -anim.height / 2) 
-            anim.animation:draw(anim.img,0,0)            
-          elseif (ren  ~= nil) then 
-            love.graphics.translate (-ren.width / 2, -ren.height / 2) 
-            love.graphics.draw(ren.img) 
-          end
+        if     (entity.isManualDraw) then 
+          entity:draw()
+        elseif (anim ~= nil) then 
+          love.graphics.translate (-anim.width / 2, -anim.height / 2) 
+          anim.animation:draw(anim.img,0,0)            
+        elseif (ren  ~= nil) then 
+          love.graphics.translate (-ren.width / 2, -ren.height / 2) 
+          love.graphics.draw(ren.img) 
+        end
             
-          self:drawNode(entity)
+        self:drawNode(entity)
           
       love.graphics.pop()
     
