@@ -13,6 +13,8 @@ function love.load()
   rs = RenderSystem(game.em.rootNode)
   game.em:addSystem(rs) 
   
+  local node = NodeEntity(50, 51, 0, 0)  
+  
 end
 
 

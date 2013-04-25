@@ -1,4 +1,4 @@
-LeafEntity = Class
+NodeEntity = Class
 {
   __includes = Entity,
   init = function(self, x, y, rot_x, rot_y, img)

@@ -13,10 +13,10 @@ Entity = Class{
 function Entity:addComponent(comp)
   self.components[comp.id] = comp
   local name = string.gsub (comp.id, 'Component', '')
-  if not(self['get'..(name)]) then    
-    self['get'..name] = comp
+  if not(self['getC'..(name)]) then    
+    self['getC'..name] = comp
   else
-    assert(true, 'Method '..'get'..(comp.id)..' do not exist')
+    assert(true, 'Method '..'getC'..(comp.id)..' already exist')
   end
   comp:addEntity(self)
 end
@@ -30,8 +30,8 @@ function Entity:removeComponent(comp)
     self.components[comp.id] = nil
   end
   local name = string.gsub (comp.id, 'Component', '')
-  if (self['get'..(name)]) then 
-    self['get'..(name)] = nil
+  if (self['getC'..(name)]) then 
+    self['getC'..(name)] = nil
   end
 end
 

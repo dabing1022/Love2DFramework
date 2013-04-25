@@ -18,5 +18,8 @@ PositionComponent = Class
   end
 }
 
-
+function PositionComponent:setPosition(x, y)
+  self.x = x
+  self.y = y
+end
 
